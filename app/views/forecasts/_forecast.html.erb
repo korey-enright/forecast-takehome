@@ -1,0 +1,10 @@
+<%# locals: (forecast:) %>
+<div id="<%= dom_id forecast %>">
+  <p class="text-xl font-bold">
+    Forecast for <%= forecast.address %>
+  </p>
+
+  <p class="my-2">
+    <strong class="inline-block font-medium mb-1">Date:</strong> <%= forecast.date.strftime("%B %e, %Y") %>
+  </p>
+</div>

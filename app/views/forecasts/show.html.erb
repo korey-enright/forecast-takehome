@@ -1,0 +1,24 @@
+<div class="mx-auto w-full flex">
+
+
+  <div class="space-y-4">
+    <div class="card">
+      <%= render @forecast %>
+    </div>
+    <div class="card">
+        <h2 class="text-xl font-bold">Current 🌡️: <%= @current_weather.temp_f %>°F</h2>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4">
+      <% @forecast_days.each do |forecast_day| %>
+        <div class="card">
+          <h2 class="text-xl font-bold"><%= forecast_day.date.strftime("%B %e, %Y") %></h2>
+          <p class="text-sm text-gray-500">High 🌡️: <%= forecast_day.max_temp_f %>°F</p>
+          <p class="text-sm text-gray-500">Low 🌡️: <%= forecast_day.min_temp_f %>°F</p>
+          <p class="text-sm text-gray-500">Average 🌡️: <%= forecast_day.avg_temp_f %>°F</p>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to "Back", new_forecast_path, class: "rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium" %>
+  </div>
+</div>
